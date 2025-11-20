@@ -1,18 +1,17 @@
 import { useEffect, useState } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
+import { useTheme } from '../contexts/ThemeContext';
 
 const ParticlesBackground = () => {
   const [init, setInit] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      console.log('Particles initializing...');
       await loadSlim(engine);
-      console.log('Particles initialized!');
     }).then(() => {
       setInit(true);
-      console.log('Particles ready!');
     });
   }, []);
 
@@ -20,10 +19,15 @@ const ParticlesBackground = () => {
     return null;
   }
 
+  // Different colors for light/dark mode - red for light, cyan for dark
+  const particleColor = theme === 'dark' ? '#22d3ee' : '#ef4444';
+  const lineColor = theme === 'dark' ? '#22d3ee' : '#ef4444';
+
   return (
-    <div className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
+    <div className="fixed inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
       <Particles
         id="tsparticles"
+        className="w-full h-full pointer-events-auto"
         options={{
           background: {
             color: {
@@ -33,19 +37,19 @@ const ParticlesBackground = () => {
           fpsLimit: 120,
           particles: {
             number: {
-              value: 80,
+              value: 150,
               density: {
                 enable: true,
               },
             },
             color: {
-              value: '#e40027', // Resume red accent
+              value: particleColor,
             },
             shape: {
               type: 'circle',
             },
             opacity: {
-              value: 0.3,
+              value: 0.85,
             },
             size: {
               value: { min: 1, max: 3 },
@@ -53,8 +57,8 @@ const ParticlesBackground = () => {
             links: {
               enable: true,
               distance: 150,
-              color: '#e40027',
-              opacity: 0.2,
+              color: lineColor,
+              opacity: 0.65,
               width: 1,
             },
             move: {
@@ -73,7 +77,7 @@ const ParticlesBackground = () => {
             events: {
               onHover: {
                 enable: true,
-                mode: 'grab',
+                mode: 'repulse',
               },
               onClick: {
                 enable: true,
@@ -85,11 +89,9 @@ const ParticlesBackground = () => {
               },
             },
             modes: {
-              grab: {
-                distance: 140,
-                links: {
-                  opacity: 0.5,
-                },
+              repulse: {
+                distance: 100,
+                duration: 0.4,
               },
               push: {
                 quantity: 4,

@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is a **multi-page** portfolio website built with React + Vite + TypeScript, featuring an interactive particle background using TSParticles. The site showcases Benjamin Cohen's resume, projects, and contact information.
+This is a **multi-page** portfolio website built with React + Vite + TypeScript, featuring an interactive particle background using TSParticles. The site showcases Ben Cohen's resume, projects, and contact information.
 
 ## Tech Stack
 
@@ -18,6 +18,7 @@ This is a **multi-page** portfolio website built with React + Vite + TypeScript,
 ## Important Notes
 
 ### Particle Library
+
 - Using **@tsparticles/react v3**, not react-tsparticles v2
 - Packages installed:
   - `@tsparticles/react`
@@ -63,6 +64,7 @@ src/
 ## Key Features Implemented
 
 1. **Interactive Particle Background**:
+
    - Particles (dots) connect with lines when close to each other
    - "Grab" mode on hover - particles connect to mouse cursor
    - "Push" mode on click - adds new particles
@@ -70,18 +72,21 @@ src/
    - Configured in `src/components/ParticlesBackground.tsx`
 
 2. **Entrance Animation**:
+
    - Particle background appears immediately
    - Hero text fades in after 800ms delay
    - Smooth opacity and transform transition
    - Implemented in `src/pages/HomePage.tsx`
 
 3. **Multi-Page Navigation**:
+
    - React Router v7 for client-side routing
    - Navbar with active page highlighting
    - Mobile-responsive hamburger menu
    - Pages: Home (`/`), Resume (`/resume`), Projects (`/projects`), About (`/about`)
 
 4. **TypeScript Integration**:
+
    - Full TypeScript conversion complete
    - Type definitions in `src/types/index.ts`
    - Typed data files and components
@@ -98,8 +103,9 @@ src/
 All data is already populated with Benjamin Cohen's information:
 
 **Personal Info:**
-- Name: Benjamin Cohen
-- Title: Senior Frontend Engineer
+
+- Name: Ben Cohen
+- Title: Senior Software Engineer
 - Email: bac1087@gmail.com
 - Phone: (516) 668-3981
 - Location: Salt Lake City, UT
@@ -113,6 +119,7 @@ All data is already populated with Benjamin Cohen's information:
 ## Customization Points
 
 To add more content:
+
 1. Add more projects to `src/data/projects.ts`
 2. Add project screenshots to `public/images/`
 3. Add resume PDF to `public/resume.pdf`
@@ -122,18 +129,23 @@ To add more content:
 ## Running the Project
 
 **Development**:
+
 ```bash
 npm run dev
 ```
+
 Server runs on http://localhost:5173
 
 **Build**:
+
 ```bash
 npm run build
 ```
+
 Output in `dist/` folder
 
 **Preview Production**:
+
 ```bash
 npm run preview
 ```
@@ -169,3 +181,8 @@ npm run preview
 - User does NOT want long-running tasks (like dev servers) executed by Claude
 - Provide instructions for running such tasks instead
 - Keep this context file updated for future sessions
+- **DO NOT create extra documentation files** (like CHANGES.md, QUICKSTART.md, etc.)
+  - Use .claude/ folder for long-term context
+  - Use README.md for developer documentation
+  - Can create terminal artifacts to communicate but don't save them to repo
+  - Don't pollute the repo with documentation files

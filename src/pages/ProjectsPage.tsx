@@ -3,12 +3,12 @@ import { FaGithub, FaExternalLinkAlt, FaYoutube } from 'react-icons/fa';
 
 const ProjectsPage = () => {
   return (
-    <div className="min-h-screen py-20 px-4">
+    <div className="min-h-screen pt-24 pb-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 text-center">
           Projects
         </h1>
-        <p className="text-gray-400 text-center mb-12">
+        <p className="text-gray-600 dark:text-gray-400 text-center mb-12">
           Exploring AI-native interfaces and modern web technologies
         </p>
 
@@ -16,7 +16,7 @@ const ProjectsPage = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden hover:border-[#e40027] transition-all hover:shadow-lg hover:shadow-[#e40027]/10 flex flex-col"
+              className="glass-card border border-gray-200 dark:border-slate-700 rounded-lg overflow-hidden hover:border-red-500 dark:hover:border-cyan-400 transition-all shadow-sm hover:shadow-lg hover:shadow-red-500/10 dark:hover:shadow-cyan-400/10 flex flex-col"
             >
               {/* Project Image/Thumbnail */}
               {project.image ? (
@@ -35,10 +35,10 @@ const ProjectsPage = () => {
 
               {/* Project Info */}
               <div className="p-6 flex-grow flex flex-col">
-                <h3 className="text-xl font-semibold text-white mb-2">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                   {project.name}
                 </h3>
-                <p className="text-gray-300 mb-4 flex-grow">
+                <p className="text-gray-700 dark:text-gray-300 mb-4 flex-grow">
                   {project.description}
                 </p>
 
@@ -48,7 +48,7 @@ const ProjectsPage = () => {
                     {project.technologies.map((tech, i) => (
                       <span
                         key={i}
-                        className="bg-[#fff3f5] border border-[#ffe1e7] text-[#e40027] px-2 py-1 rounded text-xs font-mono"
+                        className="bg-red-50 dark:bg-cyan-500/10 border border-red-100 dark:border-cyan-500/30 text-red-600 dark:text-cyan-400 px-2 py-1 rounded text-xs font-mono"
                       >
                         {tech}
                       </span>
@@ -63,7 +63,7 @@ const ProjectsPage = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-gray-300 hover:text-[#e40027] transition-colors"
+                      className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-red-500 dark:hover:text-cyan-400 transition-colors"
                     >
                       <FaGithub size={20} />
                       <span>Code</span>
@@ -74,7 +74,7 @@ const ProjectsPage = () => {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-gray-300 hover:text-[#e40027] transition-colors"
+                      className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-red-500 dark:hover:text-cyan-400 transition-colors"
                     >
                       <FaExternalLinkAlt size={18} />
                       <span>Live Demo</span>
@@ -85,7 +85,7 @@ const ProjectsPage = () => {
                       href={project.video}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-gray-300 hover:text-[#e40027] transition-colors"
+                      className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-red-500 dark:hover:text-cyan-400 transition-colors"
                     >
                       <FaYoutube size={20} />
                       <span>Video</span>
@@ -110,7 +110,7 @@ const ProjectsPage = () => {
             href="https://github.com/AloofBuddha"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 text-[#e40027] hover:text-[#c00022] font-medium transition-colors"
+            className="inline-flex items-center space-x-2 text-red-500 dark:text-cyan-400 hover:text-red-600 dark:hover:text-cyan-500 font-medium transition-colors"
           >
             <span>View More Projects on GitHub</span>
             <FaExternalLinkAlt size={16} />
