@@ -26,7 +26,7 @@ export const projects: Project[] = [
       "Claude-inspired chat interface for xAI's Grok API featuring real-time streaming responses and an innovative explanation pane for contextual lookups. Select any text in the chat to get instant explanations from Dictionary, Wikipedia, or AI-powered summaries. Includes persistent chat history, markdown rendering with GitHub-flavored syntax, and LaTeX equation support.",
     technologies: ["React", "TypeScript", "Vite", "Vercel", "xAI API", "SSE"],
     github: "https://github.com/AloofBuddha/llm-ui",
-    demo: "https://llm-ui-omega.vercel.app/",
+    demo: "https://llm-ui-ben-cohen.vercel.app/",
     video: "https://www.youtube.com/watch?v=7MZHiNXoswg",
     image: "/llm-ui-pic.png",
     icon: "💬",

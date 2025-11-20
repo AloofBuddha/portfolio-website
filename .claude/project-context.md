@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is a **multi-page** portfolio website built with React + Vite + TypeScript, featuring an interactive particle background using TSParticles. The site showcases Ben Cohen's resume, projects, and contact information.
+This is a **multi-page** portfolio website built with React + Vite + TypeScript, featuring an interactive particle background using TSParticles visible across all pages. The site showcases Ben Cohen's resume, projects, and contact information with a modern glass-morphism design and dark mode support.
 
 ## Tech Stack
 
@@ -33,8 +33,8 @@ This is a **multi-page** portfolio website built with React + Vite + TypeScript,
 2. **TypeScript**: Full TypeScript implementation for type safety
 3. **Data Separation**: All content (projects, skills, experience) is stored in `/src/data/` as TypeScript files with type definitions
 4. **Page Structure**: Each page is a separate component in `/src/pages/`
-5. **Particle Background**: Only on home page, fixed background with z-index: -10
-6. **Entrance Animation**: Home page shows particles first, then hero text fades in after 800ms
+5. **Particle Background**: Visible on ALL pages, rendered at app level in App.tsx with fixed positioning and z-index: 1
+6. **Z-Index Stacking**: Body background → Particles (z-index: 1) → Content (z-index: 10)
 7. **Responsive Design**: Mobile-first approach using Tailwind breakpoints
 
 ## File Structure
