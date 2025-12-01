@@ -65,38 +65,56 @@ src/
 
 1. **Interactive Particle Background**:
 
-   - Particles (dots) connect with lines when close to each other
-   - "Grab" mode on hover - particles connect to mouse cursor
-   - "Push" mode on click - adds new particles
-   - Only appears on home page
+   - 150 particles that connect with lines when within 150px distance
+   - "Repulse" mode on hover - particles scatter from mouse cursor
+   - "Push" mode on click - adds 4 new particles
+   - Visible on ALL pages (rendered in App.tsx)
+   - Red (#ef4444) particles in light mode, cyan (#22d3ee) in dark mode
+   - Opacity: 0.85 for particles, 0.65 for connection lines
    - Configured in `src/components/ParticlesBackground.tsx`
 
-2. **Entrance Animation**:
+2. **Dark Mode Toggle**:
 
-   - Particle background appears immediately
-   - Hero text fades in after 800ms delay
-   - Smooth opacity and transform transition
-   - Implemented in `src/pages/HomePage.tsx`
+   - Light/dark theme switcher in navbar
+   - Defaults to light mode
+   - Persists preference in localStorage
+   - Uses Tailwind v4 class-based dark mode with custom `@variant dark (.dark &);` directive
+   - Context-based state management via ThemeContext
 
-3. **Multi-Page Navigation**:
+3. **Glass-Morphism Design**:
+
+   - Translucent cards and navbar showing particles behind
+   - Custom `.glass-card` and `.glass-nav` utilities in index.css
+   - Uses pure `rgba()` transparency (NO backdrop-filter due to rendering issues)
+   - Light mode: `rgba(255, 255, 255, 0.7)` with red accents
+   - Dark mode: `rgba(30, 41, 59, 0.5)` with cyan accents
+
+4. **Multi-Page Navigation**:
 
    - React Router v7 for client-side routing
    - Navbar with active page highlighting
    - Mobile-responsive hamburger menu
+   - Translucent navbar showing particles
    - Pages: Home (`/`), Resume (`/resume`), Projects (`/projects`), About (`/about`)
 
-4. **TypeScript Integration**:
+5. **Color Scheme**:
+
+   - **Light Mode**: White/gray backgrounds with red (#ef4444) accents
+   - **Dark Mode**: Slate backgrounds with cyan (#22d3ee) accents
+   - Consistent accent colors across all interactive elements (links, buttons, borders)
+
+6. **TypeScript Integration**:
 
    - Full TypeScript conversion complete
    - Type definitions in `src/types/index.ts`
    - Typed data files and components
    - ESLint configured for TypeScript
 
-5. **Page Structure**:
-   - **HomePage**: Particle background + hero with entrance animation
-   - **ResumePage**: Full work history and education
-   - **ProjectsPage**: Project showcase with links
-   - **AboutPage**: Bio, skills, and contact information
+7. **Page Structure**:
+   - **HomePage**: Hero section with links to Resume and Projects pages
+   - **ResumePage**: Full work history, education, and downloadable resume PDF
+   - **ProjectsPage**: Featured projects (CollabCanvas and LLM UI) with links and images
+   - **AboutPage**: Bio, skills grid, and contact information
 
 ## Current Data
 
@@ -114,17 +132,20 @@ All data is already populated with Benjamin Cohen's information:
 
 **Experience:** SoFi, Code Platoon, DUOS, ServiceMaster, Fullstack Academy, Microsoft, Johns Hopkins University
 
-**Featured Project:** CollabCanvas (AI-powered collaborative whiteboard)
+**Featured Projects:**
+- **CollabCanvas**: AI-powered collaborative whiteboard with natural language commands
+- **LLM UI**: Claude-inspired chat interface for xAI's Grok API with streaming responses
 
 ## Customization Points
 
-To add more content:
+To modify the site:
 
-1. Add more projects to `src/data/projects.ts`
-2. Add project screenshots to `public/images/`
-3. Add resume PDF to `public/resume.pdf`
-4. Adjust particle settings in `src/components/ParticlesBackground.tsx`
-5. Modify entrance animation in `src/pages/HomePage.tsx`
+1. **Add/Edit Projects**: Update `src/data/projects.ts` with project details
+2. **Project Images**: Place images in `public/` folder and reference them in projects data
+3. **Resume PDF**: Replace `public/resume.pdf` with your own resume
+4. **Particle Settings**: Adjust particle count, colors, and behavior in `src/components/ParticlesBackground.tsx`
+5. **Color Scheme**: Modify colors in component className props (red-500 for light, cyan-400 for dark)
+6. **Content**: Update bio, skills, and experience in respective data files
 
 ## Running the Project
 
@@ -158,23 +179,43 @@ npm run preview
 - All colors use Tailwind classes for consistency
 - Maintain mobile-first responsive design
 
-## Known Considerations
+## Technical Notes & Known Issues
 
-- Particle background is performance-intensive; reduce particle count on mobile if needed
-- Smooth scrolling CSS is in App.css
-- Navbar has backdrop blur for modern glass effect
+### Glass Effect Implementation
+- **IMPORTANT**: Do NOT use `backdrop-filter` CSS property - it causes rgba transparency to fail completely
+- Current implementation uses pure `rgba()` transparency with `box-shadow` for depth
+- This was discovered through extensive debugging where backdrop-filter made cards render as solid opaque white
+
+### Tailwind v4 Dark Mode
+- Uses custom `@variant dark (.dark &);` directive in index.css for class-based dark mode
+- Standard `darkMode: 'class'` config exists but the CSS variant is what actually works
+
+### Performance
+- Particle background with 150 particles is moderately performance-intensive
+- Could reduce particle count on mobile if needed via responsive logic
+
+### Z-Index Architecture
+- Body background (layer 0)
+- Particles: `z-index: 1` with `position: fixed`
+- Main content: `z-index: 10`
+- Navbar: `z-index: 50`
+- This stacking ensures particles show through translucent elements
+
+### Other Notes
 - All external links use `target="_blank"` and `rel="noopener noreferrer"` for security
+- Pages use `pt-24 pb-20 px-4` for proper navbar clearance
+- Particle container has `pointer-events-none`, Particles component has `pointer-events-auto` for interactivity
 
 ## Future Enhancement Ideas
 
-- Add dark/light mode toggle
 - Implement actual GitHub API integration for dynamic project loading
 - Add contact form with email service (EmailJS, Formspree, etc.)
 - Add loading animations / scroll reveal effects
 - Add project filter by technology
 - Add blog section
-- Implement SEO optimizations
-- Add analytics
+- Implement SEO optimizations (meta tags, OpenGraph, etc.)
+- Add analytics (Google Analytics, Plausible, etc.)
+- Consider adding a resume builder/editor interface
 
 ## User Preferences
 
