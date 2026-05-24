@@ -4,21 +4,47 @@ export const projects: Project[] = [
   {
     name: "CollabCanvas",
     description:
-      "Real-time collaborative whiteboard with AI-powered natural language commands. Users can manipulate canvas elements through conversational prompts ('create 10 red circles, align vertically with 10px gaps') leveraging GPT-4 with custom RAG for canvas context awareness. Supports batch operations and high-level UI generation. Built to explore AI-native interaction patterns—learning firsthand where LLMs excel (structured commands) vs. struggle (complex spatial reasoning, layering).",
+      "Real-time collaborative whiteboard with AI-assisted shape composition. Say 'make me a firetruck' and the AI agent assembles it out of primitive shapes on the canvas; multiplayer state is synced via PartyKit so everyone sees the build happen live. Built to push on a specific question: how far can an LLM get at spatial reasoning when the only output is a list of shapes, positions, and colors?",
     technologies: [
       "React",
-      "Firebase",
       "TypeScript",
+      "PartyKit",
+      "Firebase",
       "Konva",
-      "Zustand",
       "OpenAI API",
+      "Vercel",
     ],
-    github: "https://github.com/AloofBuddha/CollabCanvas",
+    github: "https://github.com/AloofBuddha/collab-canvas-v2",
     demo: "https://collab-canvas-ben-cohen.vercel.app/",
     video: "https://www.youtube.com/watch?v=5cwvJYZQS9s",
     image: "/collab-canvas-pic.png",
     icon: "🎨",
-    featured: true,
+    todos: [
+      "Swap OpenAI for Claude API and rerun prompt engineering on shape composition",
+      "Capture an updated screenshot showing v2 UI",
+    ],
+  },
+  {
+    name: "Fraction Dojo",
+    description:
+      "Karate-themed math tutor that teaches fraction equivalence (½ = 2/4 = 4/8). The whole is a wooden board; chop it in half, glue pieces back, or simplify — three tools that turn 'equivalent fractions' from abstract notation into something you can see and feel. An animated sensei guides the lesson belt-by-belt. Built in a week as a Synthesis-Tutor clone, with a framework-agnostic core/ layer so the game logic could be ported to React Native later.",
+    technologies: [
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "Tailwind v4",
+      "shadcn/ui",
+      "Zustand",
+      "Vitest",
+    ],
+    github: "https://github.com/AloofBuddha/fraction-dojo",
+    demo: "https://fraction-dojo.vercel.app/",
+    image: "/fraction-dojo.png",
+    icon: "🥋",
+    todos: [
+      "Record a short demo walkthrough video",
+      "Finish the intro experience + real curriculum (see SPRINT.md backlog)",
+    ],
   },
   {
     name: "LLM UI",
@@ -30,7 +56,84 @@ export const projects: Project[] = [
     video: "https://www.youtube.com/watch?v=7MZHiNXoswg",
     image: "/llm-ui-pic.png",
     icon: "💬",
-    featured: true,
   },
-  // Add more projects here as needed
+  {
+    name: "ASV Fleet Command",
+    description:
+      "Real-time command and monitoring interface for a fleet of autonomous surface vehicles. Live telemetry streams over PartyKit, interactive Leaflet map with geospatial calculations (bearing, distance along route), and an operational UI designed for at-a-glance vessel status. Built to demonstrate real-time data streaming and operational tooling design.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "PartyKit",
+      "Leaflet",
+      "Turf.js",
+      "StyleX",
+    ],
+    github: "https://github.com/AloofBuddha/asv-fleet-command",
+    demo: "https://asv-fleet-command.vercel.app",
+    image: "/asv-fleet-command.png",
+    icon: "🛥️",
+    todos: [
+      "Record short demo video showing vessels moving along routes",
+    ],
+  },
+  {
+    name: "Quantamental Dashboard",
+    description:
+      "High-performance stock screening and analysis dashboard. Real-time price updates over WebSockets, AG Grid for tens of thousands of rows, and customizable factor scoring with conditional color rules so quant patterns pop visually. Built to explore the UI side of a quant workflow — making large tabular data legible and actionable.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "AG Grid",
+      "WebSockets",
+      "Node.js",
+      "Vite",
+    ],
+    github: "https://github.com/AloofBuddha/quantamental-dashboard",
+    icon: "📈",
+    todos: [
+      "Deploy Vite client to Vercel",
+      "Host the Node WebSocket server (Fly.io or Render)",
+      "Capture a screenshot of the dashboard with live data",
+    ],
+  },
+  {
+    name: "LangSmith Trace Viewer",
+    description:
+      "Hierarchical viewer for LangSmith execution traces. Navigate execution trees, inspect LLM inputs/outputs at each step, and see timing and cost rolled up per branch. Originally built as a take-home — kept as a portfolio piece because the UI patterns (collapsible trees over large nested JSON, latency/cost visualisation) generalise well to any observability tool.",
+    technologies: ["React", "TypeScript", "Node.js", "LangSmith API"],
+    github: "https://github.com/AloofBuddha/langchain-takehome",
+    image: "/langchain-trace-viewer.png",
+    icon: "🔍",
+    todos: [
+      "Deploy client to Vercel",
+      "Host backend server (Fly.io or Render)",
+    ],
+  },
+  {
+    name: "OpenEMR Agent (Gauntlet AI)",
+    description:
+      "Agentic AI work on the OpenEMR healthcare platform, built during the Gauntlet AI cohort. Includes a custom validation chain for OpenEMR's PHP codebase and PHPStan baseline tooling. Live demo isn't practical (OpenEMR is heavy to keep running) — the work is best shown as a recorded walkthrough.",
+    technologies: ["PHP", "OpenEMR", "PHPStan", "AI Agents"],
+    icon: "🏥",
+    todos: [
+      "Record video walkthrough of the validator chain in action",
+      "Decide whether to link the agent fork or keep source private",
+    ],
+  },
+  {
+    name: "Warehouse Wreckage",
+    description:
+      "Carnival-style knock-down-the-barrels game written in Unreal Engine 5 to learn UE physics, UI, and game-loop logic in C++. Spawn projectiles, watch the barrel pyramid collapse, and chase the win state.",
+    technologies: ["C++", "Unreal Engine 5"],
+    github: "https://github.com/AloofBuddha/WarehouseWreckage",
+    icon: "🎯",
+    todos: [
+      "Capture in-game screenshot for the card thumbnail",
+      "Record gameplay video for embedding",
+      "Cut a GitHub release with a downloadable Windows build (.zip)",
+      "Investigate UE5 → browser export (likely needs the community HTML5 fork; may not be feasible)",
+    ],
+  },
 ];
