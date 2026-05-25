@@ -1,4 +1,2 @@
-Fix translucent glass effect
-add links for LLM-UI (youtube and live demo)
-add screenshot of each project instead of generic
-move download button to top
+- Verify translucent glass effect in browser (needs user eyes)
+- Screenshots for Quantamental Dashboard, OpenEMR Agent, Warehouse Wreckage (or accept icon fallback)
