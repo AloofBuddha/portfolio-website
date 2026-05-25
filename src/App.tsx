@@ -1,4 +1,5 @@
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { DevModeProvider } from "./contexts/DevModeContext";
 import Navbar from "./components/Navbar";
 import ParticlesBackground from "./components/ParticlesBackground";
 import HomePage from "./pages/HomePage";
@@ -17,24 +18,26 @@ import ContactPage from "./pages/ContactPage";
 function App() {
   return (
     <ThemeProvider>
-      <div className="relative min-h-screen text-gray-900 dark:text-white transition-colors">
-        <ParticlesBackground />
-        <Navbar />
-        <main className="relative z-10">
-          <section id="home" className="scroll-mt-24">
-            <HomePage />
-          </section>
-          <section id="about" className="scroll-mt-24">
-            <AboutPage />
-          </section>
-          <section id="projects" className="scroll-mt-24">
-            <ProjectsPage />
-          </section>
-          <section id="contact" className="scroll-mt-24">
-            <ContactPage />
-          </section>
-        </main>
-      </div>
+      <DevModeProvider>
+        <div className="relative min-h-screen text-gray-900 dark:text-white transition-colors">
+          <ParticlesBackground />
+          <Navbar />
+          <main className="relative z-10">
+            <section id="home" className="scroll-mt-24">
+              <HomePage />
+            </section>
+            <section id="about" className="scroll-mt-24">
+              <AboutPage />
+            </section>
+            <section id="projects" className="scroll-mt-24">
+              <ProjectsPage />
+            </section>
+            <section id="contact" className="scroll-mt-24">
+              <ContactPage />
+            </section>
+          </main>
+        </div>
+      </DevModeProvider>
     </ThemeProvider>
   );
 }

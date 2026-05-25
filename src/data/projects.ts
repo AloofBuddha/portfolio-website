@@ -21,7 +21,6 @@ export const projects: Project[] = [
     icon: "🎨",
     todos: [
       "Swap OpenAI for Claude API and rerun prompt engineering on shape composition",
-      "Capture an updated screenshot showing v2 UI",
     ],
   },
   {
@@ -43,7 +42,6 @@ export const projects: Project[] = [
     icon: "🥋",
     todos: [
       "Record a short demo walkthrough video",
-      "Finish the intro experience + real curriculum (see SPRINT.md backlog)",
     ],
   },
   {
@@ -91,11 +89,11 @@ export const projects: Project[] = [
       "Vite",
     ],
     github: "https://github.com/AloofBuddha/quantamental-dashboard",
+    demo: "https://quantamental-dashboard.vercel.app/",
+    image: "/quantamental-dashboard.png",
     icon: "📈",
     todos: [
-      "Deploy Vite client to Vercel",
       "Host the Node WebSocket server (Fly.io or Render)",
-      "Capture a screenshot of the dashboard with live data",
     ],
   },
   {
@@ -104,10 +102,10 @@ export const projects: Project[] = [
       "Hierarchical viewer for LangSmith execution traces. Navigate execution trees, inspect LLM inputs/outputs at each step, and see timing and cost rolled up per branch. Originally built as a take-home — kept as a portfolio piece because the UI patterns (collapsible trees over large nested JSON, latency/cost visualisation) generalise well to any observability tool.",
     technologies: ["React", "TypeScript", "Node.js", "LangSmith API"],
     github: "https://github.com/AloofBuddha/langchain-takehome",
+    demo: "https://langsmith-trace-viewer.vercel.app/",
     image: "/langchain-trace-viewer.png",
     icon: "🔍",
     todos: [
-      "Deploy client to Vercel",
       "Host backend server (Fly.io or Render)",
     ],
   },
@@ -116,9 +114,10 @@ export const projects: Project[] = [
     description:
       "Agentic AI work on the OpenEMR healthcare platform, built during the Gauntlet AI cohort. Includes a custom validation chain for OpenEMR's PHP codebase and PHPStan baseline tooling. Live demo isn't practical (OpenEMR is heavy to keep running) — the work is best shown as a recorded walkthrough.",
     technologies: ["PHP", "OpenEMR", "PHPStan", "AI Agents"],
+    video: "https://www.youtube.com/watch?v=cW_nqSDpTPg&t=1s",
+    image: "/openemr-agent.png",
     icon: "🏥",
     todos: [
-      "Record video walkthrough of the validator chain in action",
       "Decide whether to link the agent fork or keep source private",
     ],
   },
@@ -128,11 +127,11 @@ export const projects: Project[] = [
       "Carnival-style knock-down-the-barrels game written in Unreal Engine 5 to learn UE physics, UI, and game-loop logic in C++. Spawn projectiles, watch the barrel pyramid collapse, and chase the win state.",
     technologies: ["C++", "Unreal Engine 5"],
     github: "https://github.com/AloofBuddha/WarehouseWreckage",
+    download: "https://github.com/AloofBuddha/WarehouseWreckage/releases/download/v1/Windows.zip",
+    image: "/warehouse-wreckage.png",
     icon: "🎯",
     todos: [
-      "Capture in-game screenshot for the card thumbnail",
       "Record gameplay video for embedding",
-      "Cut a GitHub release with a downloadable Windows build (.zip)",
       "Investigate UE5 → browser export (likely needs the community HTML5 fork; may not be feasible)",
     ],
   },

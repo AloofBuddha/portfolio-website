@@ -1,11 +1,13 @@
 import { FaGithub, FaExternalLinkAlt, FaYoutube } from "react-icons/fa";
 import type { Project } from "../types";
+import { useDevMode } from "../contexts/DevModeContext";
 
 interface Props {
   project: Project;
 }
 
 const ProjectCard = ({ project }: Props) => {
+  const { devMode } = useDevMode();
   return (
     <div className="glass-card border border-gray-200 dark:border-slate-700 rounded-lg overflow-hidden hover:border-red-500 dark:hover:border-cyan-400 transition-all shadow-sm hover:shadow-lg hover:shadow-red-500/10 dark:hover:shadow-cyan-400/10 flex flex-col">
       {/* Thumbnail */}
@@ -46,8 +48,8 @@ const ProjectCard = ({ project }: Props) => {
           </div>
         )}
 
-        {/* TODOs — visible reminders so they can't be forgotten */}
-        {project.todos && project.todos.length > 0 && (
+        {/* TODOs — dev-only reminders; hidden from public visitors. */}
+        {devMode && project.todos && project.todos.length > 0 && (
           <details className="mb-4 text-sm">
             <summary className="cursor-pointer text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-cyan-400 select-none">
               {project.todos.length} TODO
