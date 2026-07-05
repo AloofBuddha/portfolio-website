@@ -29,13 +29,11 @@ const HomePage = () => {
           <span className="text-red-500 dark:text-cyan-400">Ben Cohen</span>
         </h1>
         <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-2">
-          <span className="font-bold">Senior Frontend Engineer</span> &{" "}
-          <span className="font-bold">Game Developer</span>
+          <span className="font-bold">Senior Frontend Engineer</span>
         </p>
         <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
           Design-oriented engineer who owns the frontend end-to-end and ships
-          polished, real-time, AI-native interfaces. Hobbyist game dev on the
-          side.
+          polished, real-time, AI-native interfaces.
         </p>
 
         {/* Social Links */}

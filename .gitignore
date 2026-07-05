@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+
+# nested resume repo (github.com/AloofBuddha/my-resume) — source of public/resume.pdf
+public/resume/
