@@ -25,6 +25,15 @@ const AboutPage = () => {
             both technical depth and a collaborative mindset to every project.
           </p>
           <p className="text-lg">
+            Today I'm at{" "}
+            <span className="text-red-500 dark:text-cyan-400 font-semibold">
+              LangChain
+            </span>{" "}
+            building AI governance tooling: spend policies, PII and secrets
+            redaction, and ABAC/RBAC permissions that let regulated teams adopt
+            LLM agents safely.
+          </p>
+          <p className="text-lg">
             I'm particularly passionate about exploring how{" "}
             <span className="text-red-500 dark:text-cyan-400 font-semibold">
               AI-native interfaces
